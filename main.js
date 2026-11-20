@@ -485,7 +485,7 @@ function createWindow() {
     backgroundColor: '#15151b',
     autoHideMenuBar: true,
     show: false,
-    icon: path.join(__dirname, 'assets', 'pexlora-owl.webp'),
+    icon: path.join(__dirname, 'assets', 'pexlora-owl.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
