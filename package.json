@@ -36,7 +36,7 @@
       "assets/pexlora-owl.ico"
     ],
     "win": {
-      "icon": "assets/pexlora-owl.ico",
+      "icon": "assets/icon.ico",
       "target": [
         "nsis"
       ]
@@ -51,9 +51,9 @@
       "uninstallDisplayName": "Pexlora Browser",
       "deleteAppDataOnUninstall": false,
       "artifactName": "Pexlora-Setup-${version}.${ext}",
-      "installerIcon": "assets/pexlora-owl.ico",
-      "uninstallerIcon": "assets/pexlora-owl.ico",
-      "installerHeaderIcon": "assets/pexlora-owl.ico",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
       "runAfterFinish": true,
       "menuCategory": "Pexlora Browser"
     },
