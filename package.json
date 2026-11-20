@@ -1,7 +1,7 @@
 {
   "name": "pexlora-browser",
   "productName": "Pexlora Browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pexlora Browser — navegador desktop experimental",
   "author": "Pexlora",
   "license": "UNLICENSED",
@@ -31,8 +31,8 @@
       "main.js",
       "preload.js",
       "src/**/*",
-      "assets/icon.png",
-      "package.json"
+      "package.json",
+      "assets/pexlora-owl.webp"
     ],
     "win": {
       "icon": "assets/icon.ico",

@@ -1,4 +1,4 @@
-# Pexlora Browser — versão 0.1.0
+# Pexlora Browser — versão 0.1.1
 
 O Pexlora Browser é uma versão desktop experimental construída com Electron e Chromium.
 
@@ -11,7 +11,7 @@ O workflow do GitHub Actions já está configurado em .github/workflows/build-wi
 3. Envie os arquivos e pastas extraídos para a raiz do repositório, incluindo package.json, main.js, preload.js, src/ e assets/. Não envie outra pasta aninhada; os arquivos precisam ficar diretamente na raiz.
 4. Faça commit na branch main.
 5. Abra Actions e aguarde Build Pexlora Windows installer terminar com sucesso.
-6. Abra Releases e baixe Pexlora-Setup-0.1.0.exe.
+6. Abra Releases e baixe Pexlora-Setup-0.1.1.exe.
 
 A compilação é feita num Windows hospedado pelo GitHub Actions. Você não precisa instalar Node.js nem compilar no seu computador. Quem baixar o .exe final também não precisa de Node.js.
 
@@ -37,7 +37,7 @@ O instalador ainda não está publicado. A página Releases só terá o arquivo 
 
 ## Desenvolvimento local
 
-Com Node.js LTS instalado, rode npm install, npm run check e npm start. Para criar o instalador manualmente em Windows, rode npm run dist:win. O arquivo será dist/Pexlora-Setup-0.1.0.exe.
+Com Node.js LTS instalado, rode npm install, npm run check e npm start. Para criar o instalador manualmente em Windows, rode npm run dist:win. O arquivo será dist/Pexlora-Setup-0.1.1.exe.
 
 ## Segurança
 
