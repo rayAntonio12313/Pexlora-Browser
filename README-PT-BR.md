@@ -1,4 +1,4 @@
-# Pexlora Browser — versão 0.1.1
+# Pexlora Browser — versão 0.2.0
 
 O Pexlora Browser é uma versão desktop experimental construída com Electron e Chromium.
 
@@ -11,7 +11,7 @@ O workflow do GitHub Actions já está configurado em .github/workflows/build-wi
 3. Envie os arquivos e pastas extraídos para a raiz do repositório, incluindo package.json, main.js, preload.js, src/ e assets/. Não envie outra pasta aninhada; os arquivos precisam ficar diretamente na raiz.
 4. Faça commit na branch main.
 5. Abra Actions e aguarde Build Pexlora Windows installer terminar com sucesso.
-6. Abra Releases e baixe Pexlora-Setup-0.1.1.exe.
+6. Abra Releases e baixe Pexlora-Setup-0.2.0.exe.
 
 A compilação é feita num Windows hospedado pelo GitHub Actions. Você não precisa instalar Node.js nem compilar no seu computador. Quem baixar o .exe final também não precisa de Node.js.
 
@@ -37,8 +37,18 @@ O instalador ainda não está publicado. A página Releases só terá o arquivo 
 
 ## Desenvolvimento local
 
-Com Node.js LTS instalado, rode npm install, npm run check e npm start. Para criar o instalador manualmente em Windows, rode npm run dist:win. O arquivo será dist/Pexlora-Setup-0.1.1.exe.
+Com Node.js LTS instalado, rode npm install, npm run check e npm start. Para criar o instalador manualmente em Windows, rode npm run dist:win. O arquivo será dist/Pexlora-Setup-0.2.0.exe.
 
 ## Segurança
 
 A interface nativa e as páginas externas ficam separadas. Node Integration está desativado, Context Isolation e sandbox estão ativados. Pedidos sensíveis exigem confirmação. Esta versão é experimental; o bloqueio de rastreadores é limitado e não garante anonimato nem proteção total.
+
+
+## Pexlora 0.2.0
+
+- Página inicial redesenhada com barra lateral no estilo de navegadores modernos.
+- Favoritos salvos aparecem na barra lateral e podem ser abertos com um clique.
+- Logos vetoriais dos principais atalhos, evitando ícones genéricos.
+- Tema escuro com paisagem noturna e tema claro com paisagem diurna, ambos escolhidos nas configurações e salvos no perfil.
+- Painel Pexlora AI com conteúdo explicativo mesmo enquanto o serviço de IA não está conectado; o painel pode ser fechado normalmente.
+- As permissões de sites são negadas por padrão sem abrir janelas inesperadas do Windows.

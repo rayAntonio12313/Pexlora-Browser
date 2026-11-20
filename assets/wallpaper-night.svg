@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#080c25"/><stop offset=".52" stop-color="#39216b"/><stop offset="1" stop-color="#8c4bc0"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#c4a2ff" stop-opacity=".52"/><stop offset="1" stop-color="#a46cff" stop-opacity="0"/></radialGradient>
+ <linearGradient id="lake" x2="0" y2="1"><stop stop-color="#60358f"/><stop offset="1" stop-color="#101b3c"/></linearGradient>
+ <linearGradient id="mountain"><stop stop-color="#8065b7"/><stop offset=".48" stop-color="#34295f"/><stop offset="1" stop-color="#111b39"/></linearGradient>
+ <linearGradient id="ridge"><stop stop-color="#b09be0"/><stop offset="1" stop-color="#45316f"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="48"/></filter>
+ <pattern id="stars" width="170" height="125" patternUnits="userSpaceOnUse"><circle cx="17" cy="22" r="2" fill="#fff" opacity=".8"/><circle cx="90" cy="62" r="1.5" fill="#fff" opacity=".55"/><circle cx="145" cy="15" r="1" fill="#d8c5ff" opacity=".7"/><circle cx="57" cy="104" r="1.4" fill="#fff" opacity=".5"/></pattern>
+</defs>
+<rect width="1920" height="1080" fill="url(#sky)"/>
+<rect width="1920" height="670" fill="url(#stars)" opacity=".8"/>
+<ellipse cx="1450" cy="325" rx="420" ry="330" fill="url(#glow)" filter="url(#blur)"/>
+<circle cx="1472" cy="270" r="116" fill="#e4d6ff" opacity=".95"/>
+<circle cx="1472" cy="270" r="101" fill="#c4a4fa"/>
+<g fill="#8f75c9" opacity=".45"><circle cx="1432" cy="238" r="28"/><circle cx="1505" cy="300" r="37"/><circle cx="1490" cy="214" r="18"/><circle cx="1408" cy="296" r="15"/></g>
+<path d="M0 560 210 420 350 510 560 300 755 515 925 380 1115 565 1310 405 1510 560 1680 420 1920 550V1080H0Z" fill="#34245e"/>
+<path d="m0 680 230-170 130 88 220-300 232 290 160-160 205 240 165-150 190 190 190-140 198 145v367H0Z" fill="url(#mountain)"/>
+<path d="m580 298 80 102-46-29-37 41-30-51-54 49zM1260 405l58 88-35-25-24 30-20-39-38 34zM1690 420l60 92-43-25-18 31-25-42-27 28z" fill="url(#ridge)" opacity=".9"/>
+<path d="M0 770q260-190 510-80t460 20q275-180 540-20t410 30v360H0Z" fill="#201b4b"/>
+<path d="M0 810q240-55 440 25t470 5q270-92 525-15t485 4v251H0Z" fill="url(#lake)"/>
+<g stroke="#bd91f1" stroke-width="3" opacity=".24" fill="none"><path d="M0 860q260-22 520 0t520 0 520 0 360 0"/><path d="M0 918q260-19 520 0t520 0 520 0 360 0"/><path d="M150 988q240-12 460 0t450 0 500 0"/><path d="M920 800q90 22 180 0t180 0"/></g>
+<path d="M0 760q140-120 280-30l70 350H0zM1580 740q180-150 340-50v390h-340z" fill="#111631"/>
+<g fill="#10162f"><path d="m125 810 40-230 42 230zM90 900l75-320 82 320zM1700 830l45-260 45 260zM1760 910l72-340 80 340zM350 845l37-215 44 215zM1480 850l54-245 45 245z"/></g>
+<g fill="#a77be5" opacity=".5"><circle cx="360" cy="735" r="5"/><circle cx="372" cy="748" r="3"/><circle cx="1544" cy="744" r="4"/><circle cx="1531" cy="758" r="3"/></g>
+<path d="M0 1040q440-70 800-5t1120-10v55H0z" fill="#090f28" opacity=".7"/>
+</svg>

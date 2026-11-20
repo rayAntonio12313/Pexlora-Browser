@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, BrowserWindow, WebContentsView, ipcMain, session, shell, dialog } = require('electron');
+const { app, BrowserWindow, WebContentsView, ipcMain, session, shell } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -8,7 +8,8 @@ const APP_NAME = 'Pexlora Browser';
 const DEFAULT_SETTINGS = {
   searchEngine: 'google',
   shieldsEnabled: true,
-  showHomeOnStartup: true
+  showHomeOnStartup: true,
+  theme: 'dark'
 };
 const TRACKER_HOSTS = [
   'doubleclick.net',
@@ -170,13 +171,14 @@ function currentTab() {
 function arrangeViews() {
   if (!mainWindow || mainWindow.isDestroyed()) return;
   const [width, height] = mainWindow.getContentSize();
-  const viewWidth = Math.max(0, width - sidePanelWidth);
+  const sidebarWidth = 76;
+  const viewWidth = Math.max(0, width - sidebarWidth - sidePanelWidth);
   const viewHeight = Math.max(0, height - chromeHeight);
 
   for (const tab of tabs.values()) {
     const shouldShow = tab.id === activeTabId && !tab.home;
     tab.view.setBounds({
-      x: 0,
+      x: sidebarWidth,
       y: chromeHeight,
       width: viewWidth,
       height: viewHeight
@@ -202,23 +204,12 @@ function configureSession(browserSession, isPrivate) {
     callback({ cancel: blocked });
   });
 
-  browserSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
-    const origin = details?.requestingUrl || webContents.getURL() || 'este site';
-    const allowedPermissions = new Set(['media', 'geolocation', 'notifications', 'clipboard-read', 'fullscreen']);
-    if (!allowedPermissions.has(permission) || !mainWindow || mainWindow.isDestroyed()) {
-      callback(false);
-      return;
-    }
-    dialog.showMessageBox(mainWindow, {
-      type: 'question',
-      buttons: ['Permitir uma vez', 'Bloquear'],
-      defaultId: 1,
-      cancelId: 1,
-      title: 'Permissão do site',
-      message: `${getHost(origin) || origin} quer acessar: ${permission}.`,
-      detail: 'O Pexlora só libera esta permissão depois da sua confirmação.'
-    }).then((result) => callback(result.response === 0)).catch(() => callback(false));
+  // Sites não abrem caixas de diálogo nativas inesperadas. Permissões sensíveis
+  // ficam negadas por padrão nesta versão; navegação e pesquisa continuam normais.
+  browserSession.setPermissionRequestHandler((_webContents, _permission, callback) => {
+    callback(false);
   });
+  browserSession.setPermissionCheckHandler(() => false);
 
   browserSession.on('will-download', (_event, item) => {
     const folder = path.join(app.getPath('downloads'), 'Pexlora');
@@ -570,6 +561,7 @@ ipcMain.handle('browser:update-settings', (_event, updates = {}) => {
   if (['google', 'duckduckgo'].includes(updates.searchEngine)) data.settings.searchEngine = updates.searchEngine;
   if (typeof updates.shieldsEnabled === 'boolean') data.settings.shieldsEnabled = updates.shieldsEnabled;
   if (typeof updates.showHomeOnStartup === 'boolean') data.settings.showHomeOnStartup = updates.showHomeOnStartup;
+  if (['dark', 'light'].includes(updates.theme)) data.settings.theme = updates.theme;
   saveData();
   broadcastState();
   return data.settings;
