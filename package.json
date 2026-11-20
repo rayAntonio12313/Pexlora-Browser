@@ -1,0 +1,70 @@
+{
+  "name": "pexlora-browser",
+  "productName": "Pexlora Browser",
+  "version": "0.1.0",
+  "description": "Pexlora Browser — navegador desktop experimental",
+  "author": "Pexlora",
+  "license": "UNLICENSED",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check src/renderer.js",
+    "dist:win": "electron-builder --win nsis --x64",
+    "dist:win:portable": "electron-builder --win portable --x64",
+    "dist:win:all": "electron-builder --win nsis portable --x64",
+    "dist:linux": "electron-builder --linux AppImage --x64"
+  },
+  "devDependencies": {
+    "electron": "45.4.1",
+    "electron-builder": "26.18.1"
+  },
+  "build": {
+    "appId": "com.pexlora.browser",
+    "productName": "Pexlora Browser",
+    "executableName": "Pexlora",
+    "asar": true,
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Pexlora Browser",
+      "uninstallDisplayName": "Pexlora Browser",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "Pexlora-Setup-${version}.${ext}",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "runAfterFinish": true,
+      "menuCategory": "Pexlora Browser"
+    },
+    "portable": {
+      "artifactName": "Pexlora-Portable-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Network;WebBrowser",
+      "artifactName": "Pexlora-${version}.${ext}"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18171f">
+  <title>Pexlora Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="browser-shell">
+    <header class="chrome" id="chrome">
+      <div class="tab-row" id="tabRow">
+        <div class="brand" title="Pexlora Browser">
+          <span class="brand-mark">P</span>
+          <span class="brand-name">Pexlora</span>
+        </div>
+        <div class="tabs" id="tabs" role="tablist" aria-label="Abas"></div>
+        <button class="new-tab icon-button" id="newTab" title="Nova guia (Ctrl+T)" aria-label="Nova guia">＋</button>
+      </div>
+      <div class="toolbar" id="toolbar">
+        <div class="nav-controls">
+          <button class="icon-button" id="back" title="Voltar (Alt+←)" aria-label="Voltar" disabled>←</button>
+          <button class="icon-button" id="forward" title="Avançar (Alt+→)" aria-label="Avançar" disabled>→</button>
+          <button class="icon-button" id="reload" title="Recarregar (Ctrl+R)" aria-label="Recarregar">↻</button>
+          <button class="icon-button" id="home" title="Página inicial" aria-label="Página inicial">⌂</button>
+        </div>
+        <form class="address-form" id="addressForm">
+          <span class="address-status" id="addressStatus" aria-hidden="true">◉</span>
+          <input id="address" type="text" autocomplete="off" spellcheck="false" placeholder="Pesquisar ou digitar endereço">
+          <button class="address-bookmark" id="bookmark" type="button" title="Adicionar aos favoritos" aria-label="Adicionar aos favoritos">☆</button>
+        </form>
+        <div class="toolbar-actions">
+          <button class="icon-button private-button" id="privateTab" title="Nova guia privada" aria-label="Nova guia privada">◐</button>
+          <button class="icon-button" id="shields" title="Pexlora Shields" aria-label="Pexlora Shields">⛨</button>
+          <button class="icon-button ai-button" id="ai" title="Pexlora AI" aria-label="Pexlora AI">AI</button>
+          <button class="icon-button" id="menu" title="Menu" aria-label="Menu">···</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-area" id="contentArea">
+      <section class="home-screen" id="homeScreen">
+        <div class="home-inner">
+          <div class="home-heading">
+            <div class="home-wordmark"><span class="home-mark">P</span><span>Pexlora</span></div>
+            <p class="home-greeting" id="greeting">Bem-vindo de volta.</p>
+          </div>
+          <form class="home-search" id="homeSearchForm">
+            <span class="search-glass">⌕</span>
+            <input id="homeSearch" type="text" placeholder="Pesquisar na web ou inserir endereço" autocomplete="off" spellcheck="false">
+            <span class="enter-hint">Enter ↵</span>
+          </form>
+          <section class="favorites-section">
+            <div class="section-title-row">
+              <h2>Acesso rápido</h2>
+              <button id="manageFavorites" class="text-button">Gerenciar favoritos</button>
+            </div>
+            <div class="quick-links" id="quickLinks">
+              <button class="quick-link" data-url="https://www.google.com"><span class="quick-icon google">G</span><span>Google</span></button>
+              <button class="quick-link" data-url="https://www.youtube.com"><span class="quick-icon youtube">▶</span><span>YouTube</span></button>
+              <button class="quick-link" data-url="https://github.com"><span class="quick-icon github">⌘</span><span>GitHub</span></button>
+              <button class="quick-link" data-url="https://discord.com"><span class="quick-icon discord">◈</span><span>Discord</span></button>
+              <button class="quick-link" data-url="https://wikipedia.org"><span class="quick-icon wiki">W</span><span>Wikipedia</span></button>
+              <button class="quick-link" data-url="https://reddit.com"><span class="quick-icon reddit">r</span><span>Reddit</span></button>
+            </div>
+          </section>
+          <div class="home-bottom">
+            <div class="home-note">
+              <span class="note-dot"></span>
+              <span>Seus favoritos e histórico ficam salvos neste dispositivo.</span>
+            </div>
+            <button class="home-settings" id="openSettings">Configurações do navegador</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side-panel" id="sidePanel" aria-label="Painel lateral" hidden>
+        <div class="panel-header">
+          <div class="panel-title" id="panelTitle">Pexlora</div>
+          <button class="icon-button panel-close" id="panelClose" aria-label="Fechar painel">×</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+      </aside>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="confirm-backdrop" id="confirmBackdrop" hidden>
+      <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <h2 id="confirmTitle">Confirmar ação</h2>
+        <p id="confirmMessage"></p>
+        <div class="confirm-actions">
+          <button class="secondary-button" id="confirmCancel">Cancelar</button>
+          <button class="primary-button" id="confirmAccept">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
